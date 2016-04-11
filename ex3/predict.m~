@@ -21,6 +21,8 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
+
+
 for i = 1:m
     
     X1 = [1 X(i,:)];
@@ -28,9 +30,8 @@ for i = 1:m
     A = zeros(1,num_labels);
     for c = 1:num_labels
         
-        X2 = sigmoid(Theta1 * X1');
-        X2 = ([1 X2'])';
-        A(c) = sigmoid(Theta2(c,:) * X2);
+        X2 = sigmoid(X1' Theta1);
+        
     end
     
     [M Index] = max(A, [], 2);

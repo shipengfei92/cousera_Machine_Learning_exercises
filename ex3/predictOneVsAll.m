@@ -36,16 +36,15 @@ X = [ones(m, 1) X];
 for i = 1:m
     
     A = zeros(1,num_labels);
-    p(i) = 1
     for c = 1:num_labels
         
         theta = all_theta(c,:);
         A(c) = sigmoid(X(i,:) * theta');
         
-        if 
-        
     end
     
+    [M Index] = max(A,[],2);
+    p(i) = Index;
 end
 
 
